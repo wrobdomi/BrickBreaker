@@ -53,8 +53,6 @@ public class BrickBreakerController implements Initializable {
 
         baseColorPicker.setValue(Color.valueOf("#ffffff"));
 
-        drawBase();
-
         mainBorder.getStylesheets().add("maldivesmotiv.css");
 
         mainBorder.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
@@ -73,10 +71,12 @@ public class BrickBreakerController implements Initializable {
             }
         });
 
+        showGame();
+
     }
 
 
-    public void showBricks(){
+    public void showGame(){
         System.out.println("Inside start");
         mainAnchor.getChildren().clear();
         drawBricks();
@@ -85,7 +85,7 @@ public class BrickBreakerController implements Initializable {
 
     @FXML
     public void changeMotiv(){
-        showBricks();
+        showGame();
         System.out.println("Change motiv");
         String motiv = comboMotiv.getSelectionModel().getSelectedItem().toString();
         String lmotiv = motiv.toLowerCase();
@@ -100,6 +100,8 @@ public class BrickBreakerController implements Initializable {
 
         int xPos = 50;
         int yPos = 50;
+        int yRoadShift = 10;
+        int yWinterShift = 20;
         Random random = new Random();
 
         String motiv = comboMotiv.getSelectionModel().getSelectedItem().toString();
@@ -121,16 +123,50 @@ public class BrickBreakerController implements Initializable {
 
         for(int i = 0 ; i < Brick.brickNum; i++){
 
-            if(xPos >= Brick.xLimit){
-                yPos += Brick.yShift;
-                xPos = 50;
+
+            if(motiv.equals("Maldives") || motiv.equals("Stars")){
+                if(xPos >= Brick.xLimit){
+                    yPos += Brick.yShift;
+                    xPos = 50;
+                }
             }
+            if(motiv.equals("Road")){
+                if( i%4 == 0 && i != 0){
+                    xPos += Brick.xShift;
+                    yPos = 50 + ( ( i / 4 ) * yRoadShift);
+                }
+            }
+            if(motiv.equals("Winter")){
+                if( i%4 == 0 && i != 0){
+                    xPos += Brick.xShift;
+                    if(i < Brick.brickNum/2 ){
+                        yPos = 50 + ( ( i / 4 ) * yWinterShift);
+                    }
+                    else{
+                        yPos = 50 + ( ( Brick.brickNum / 8 ) * yWinterShift ) - ( ( (i - ( Brick.brickNum/2 ) )/ 4 ) * yWinterShift );
+                    }
+                }
+            }
+
+
             if(motiv.equals("Stars")){
                 brickColor = getRandomColor();
             }
 
+
             Brick brick = new Brick(50, 25, xPos, yPos, brickColor );
-            xPos += Brick.xShift;
+
+
+            if(motiv.equals("Maldives") || motiv.equals("Stars")){
+                xPos += Brick.xShift;
+            }
+            if(motiv.equals("Road")){
+                yPos = yPos + Brick.yShift;
+            }
+            if(motiv.equals("Winter")){
+                yPos = yPos + Brick.yShift;
+            }
+
 
 
             TranslateTransition tt =
