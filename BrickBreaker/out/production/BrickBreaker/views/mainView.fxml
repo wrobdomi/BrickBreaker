@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
    <center>
       <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,7 +23,7 @@
          </children></AnchorPane>
    </center>
    <left>
-      <VBox prefHeight="400.0" prefWidth="285.0" style="-fx-border-style: solid; -fx-border-width: 0px 3px 3px 3px; -fx-border-color: white; -fx-background-color: #77a8a8;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="400.0" prefWidth="285.0" style="-fx-border-style: solid; -fx-border-width: 0px 3px 0px 3px; -fx-border-color: white; -fx-background-color: #77a8a8;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="279.0" style="-fx-background-color: #50394c;" text="Brick " textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -39,6 +39,9 @@
                      </light>
                   </Lighting>
                </effect>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="292.0" style="-fx-background-color: #50394c;" text="Breaker" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -60,7 +63,7 @@
             </Label>
             <Label graphicTextGap="10.0" prefHeight="21.0" prefWidth="284.0" text="Control Menu" textAlignment="CENTER">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets left="10.0" top="30.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
@@ -76,9 +79,29 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="208.0" text="Start" />
-            <Label text="Appearance Menu" />
-            <ComboBox id="comboMotiv" fx:id="comboMotiv" onAction="#changeMotiv" prefHeight="31.0" prefWidth="280.0" promptText="Choose Motiv" />
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="208.0" text="Start">
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin></Button>
+            <Label graphicTextGap="10.0" text="Appearance Menu">
+               <VBox.margin>
+                  <Insets left="10.0" top="30.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <ComboBox id="comboMotiv" fx:id="comboMotiv" onAction="#changeMotiv" prefHeight="31.0" prefWidth="208.0" promptText="Choose Motiv">
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin></ComboBox>
          </children></VBox>
    </left>
 </BorderPane>

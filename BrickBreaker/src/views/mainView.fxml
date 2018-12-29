@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
    <center>
       <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -39,6 +39,9 @@
                      </light>
                   </Lighting>
                </effect>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="292.0" style="-fx-background-color: #50394c;" text="Breaker" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -78,11 +81,11 @@
             </Label>
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="208.0" text="Start">
                <VBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="20.0" top="20.0" />
                </VBox.margin></Button>
             <Label graphicTextGap="10.0" text="Appearance Menu">
                <VBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" top="30.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
@@ -95,9 +98,9 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <ComboBox id="comboMotiv" fx:id="comboMotiv" onAction="#changeMotiv" prefHeight="31.0" prefWidth="280.0" promptText="Choose Motiv">
+            <ComboBox id="comboMotiv" fx:id="comboMotiv" onAction="#changeMotiv" prefHeight="31.0" prefWidth="208.0" promptText="Choose Motiv">
                <VBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="20.0" top="20.0" />
                </VBox.margin></ComboBox>
          </children></VBox>
    </left>
