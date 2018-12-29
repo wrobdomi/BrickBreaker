@@ -1,0 +1,4 @@
+#mainAnchor {
+    -fx-background-image: url("maldives.jpg");
+    -fx-background-size: cover;
+}

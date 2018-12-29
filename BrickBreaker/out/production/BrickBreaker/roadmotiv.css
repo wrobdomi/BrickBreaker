@@ -1,0 +1,4 @@
+#mainAnchor {
+    -fx-background-image: url("road.jpg");
+    -fx-background-size: cover;
+}

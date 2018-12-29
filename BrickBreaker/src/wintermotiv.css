@@ -1,0 +1,4 @@
+#mainAnchor {
+    -fx-background-image: url("winter.jpg");
+    -fx-background-size: cover;
+}

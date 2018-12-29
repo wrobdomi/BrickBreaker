@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
+   <center>
+      <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="25.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
+         </children></AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="400.0" prefWidth="285.0" style="-fx-border-style: solid; -fx-border-width: 0px 3px 3px 3px; -fx-border-color: white; -fx-background-color: #77a8a8;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="279.0" style="-fx-background-color: #50394c;" text="Brick " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Kristen ITC" size="44.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.39" specularConstant="1.37" specularExponent="21.95" surfaceScale="0.85">
+                     <bumpInput>
+                        <Shadow height="179.6" radius="81.525" width="148.5" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="292.0" style="-fx-background-color: #50394c;" text="Breaker" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Kristen ITC" size="46.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.49" specularConstant="2.0" specularExponent="21.95" surfaceScale="0.0">
+                     <bumpInput>
+                        <Shadow color="WHITE" height="67.75" radius="61.3375" width="179.6" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label graphicTextGap="10.0" prefHeight="21.0" prefWidth="284.0" text="Control Menu" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="208.0" text="Start" />
+            <Label text="Appearance Menu" />
+            <ComboBox id="comboMotiv" fx:id="comboMotiv" onAction="#changeMotiv" prefHeight="31.0" prefWidth="280.0" promptText="Choose Motiv" />
+         </children></VBox>
+   </left>
+</BorderPane>
