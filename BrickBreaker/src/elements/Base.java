@@ -1,6 +1,7 @@
 package elements;
 
 
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 public class Base {
@@ -10,16 +11,56 @@ public class Base {
     private int initialX;
     private int initialY;
     private final int radius = 15;
-    private final String baseId = "base";
+    private String color;
+
+    public static int xUpperLimit;
+    public static int xLowerLimit;
+
+    public static final int moveLength;
+    public static final String baseId;
+    public static final String searchId;
+    public static final int levelOneWidth;
+    public static final int levelTwoWidth;
+    public static final int levelThreeWidth;
+    public static final int xUpperBound;
+    public static final int xUpperBoundChange;
 
     private Rectangle rectangle;
 
+    static {
+        xUpperLimit = 1105;
+        xLowerLimit = 0 ;
+        moveLength = 20;
+        baseId = "base";
+        searchId = "#base";
+        levelOneWidth = 250;
+        levelTwoWidth = 175;
+        levelThreeWidth = 100;
+        xUpperBound = 1105;
+        xUpperBoundChange = 75;
+    }
 
-    public Base(int width, int height, int initialX, int initialY) {
-        this.width = width;
+    public Base(int widthLevel, int height, int initialX, int initialY, String color) {
+
+        switch (widthLevel){
+            case 1:
+                this.width = this.levelOneWidth;
+                this.xUpperLimit = xUpperBound - 2*xUpperBoundChange;
+                break;
+            case 2:
+                this.width = this.levelTwoWidth;
+                this.xUpperLimit = xUpperBound - xUpperBoundChange;
+                break;
+            case 3:
+                this.width = this.levelThreeWidth;
+                this.xUpperLimit = this.xUpperBound;
+                break;
+        }
+
         this.height = height;
         this.initialX = initialX;
         this.initialY = initialY;
+        this.color = color;
         rectangle = new Rectangle();
         rectangle.setWidth(width);
         rectangle.setHeight(height);
@@ -28,6 +69,8 @@ public class Base {
         rectangle.setArcWidth(radius);
         rectangle.setArcHeight(radius);
         rectangle.setId(baseId);
+        rectangle.setFill(Paint.valueOf(color));
+
     }
 
     public Rectangle getRectangle() {
@@ -37,4 +80,5 @@ public class Base {
     public String getBaseId() {
         return baseId;
     }
+
 }

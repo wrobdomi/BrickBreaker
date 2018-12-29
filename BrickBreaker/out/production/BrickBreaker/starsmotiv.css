@@ -2,3 +2,7 @@
     -fx-background-image: url("stars.jpg");
     -fx-background-size: cover;
 }
+
+#menuBox{
+    -fx-background-color: rgb(23, 14, 9);
+}

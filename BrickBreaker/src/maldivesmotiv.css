@@ -2,3 +2,7 @@
     -fx-background-image: url("maldives.jpg");
     -fx-background-size: cover;
 }
+
+#menuBox{
+    -fx-background-color: rgb(1,124,217);
+}
