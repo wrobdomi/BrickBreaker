@@ -1,23 +1,24 @@
 package controllers;
 
 import elements.Base;
+import elements.Brick;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -74,14 +75,17 @@ public class BrickBreakerController implements Initializable {
 
     }
 
-    @FXML
-    public void startGame(){
-        System.out.println("Inside start");
 
+    public void showBricks(){
+        System.out.println("Inside start");
+        mainAnchor.getChildren().clear();
+        drawBricks();
+        drawBase();
     }
 
     @FXML
     public void changeMotiv(){
+        showBricks();
         System.out.println("Change motiv");
         String motiv = comboMotiv.getSelectionModel().getSelectedItem().toString();
         String lmotiv = motiv.toLowerCase();
@@ -94,7 +98,56 @@ public class BrickBreakerController implements Initializable {
 
     public void drawBricks(){
 
+        int xPos = 50;
+        int yPos = 50;
+        Random random = new Random();
 
+        String motiv = comboMotiv.getSelectionModel().getSelectedItem().toString();
+        System.out.println("Motiv issss " + motiv);
+        String brickColor = "#ffffff";
+
+        switch (motiv){
+            case "Maldives":
+                brickColor = "#017CD9";
+                break;
+            case "Road":
+                brickColor = "#BC9492";
+                break;
+            case "Winter":
+                brickColor = "#CED1D6";
+                break;
+        }
+
+
+        for(int i = 0 ; i < Brick.brickNum; i++){
+
+            if(xPos >= Brick.xLimit){
+                yPos += Brick.yShift;
+                xPos = 50;
+            }
+            if(motiv.equals("Stars")){
+                brickColor = getRandomColor();
+            }
+
+            Brick brick = new Brick(50, 25, xPos, yPos, brickColor );
+            xPos += Brick.xShift;
+
+
+            TranslateTransition tt =
+                    new TranslateTransition(Duration.seconds(4), brick.getRectangle());
+
+            int iniX = random.nextInt(1000);
+            int iniY = random.nextInt(800);
+
+            tt.setFromX( iniX);
+            tt.setFromY( iniY);
+            tt.setToX( brick.getRectangle().getTranslateX() );
+            tt.setToY( brick.getRectangle().getTranslateY() );
+            tt.play();
+
+            mainAnchor.getChildren().add(brick.getRectangle());
+
+        }
     }
 
 
@@ -102,33 +155,7 @@ public class BrickBreakerController implements Initializable {
 
         String color = baseColorPicker.getValue().toString();
 
-        Base base = new Base(1, 20, 500, 650, color);
-
-        Rectangle rectangleBase = base.getRectangle();
-
-        Rectangle actualBase = (Rectangle) mainAnchor.lookup(Base.searchId);
-        System.out.println(actualBase);
-        if(actualBase != null){
-            mainAnchor.getChildren().remove(actualBase);
-        }
-
-        mainAnchor.getChildren().add(rectangleBase);
-
-        TranslateTransition tt =
-                new TranslateTransition(Duration.seconds(4), rectangleBase);
-
-        tt.setFromX( 0 );
-        tt.setToX( rectangleBase.getTranslateX() );
-        tt.setToY( rectangleBase.getTranslateY() );
-        tt.play();
-    }
-
-
-    public void drawBase(int level){
-
-        String color = baseColorPicker.getValue().toString();
-
-        Base base = new Base(level, 20, 500, 650, color);
+        Base base = new Base((int) levelSlider.getValue(), 20, 500, 650, color);
 
         Rectangle rectangleBase = base.getRectangle();
 
@@ -151,7 +178,16 @@ public class BrickBreakerController implements Initializable {
 
 
     public void changeLevel(){
-        drawBase((int) levelSlider.getValue());
+        drawBase();
+    }
+
+    public String getRandomColor(){
+        Random random = new Random();
+        int r = random.nextInt(255);
+        int g = random.nextInt(255);
+        int b = random.nextInt(255);
+        Color color = Color.rgb(r, g, b);
+        return color.toString();
     }
 
 

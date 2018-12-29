@@ -66,20 +66,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
+            <state relative-caret-position="94">
               <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Base.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/elements/Base.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,12 +78,12 @@
       <file leaf-file-name="BrickBreakerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/BrickBreakerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
+            <state relative-caret-position="119">
+              <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3765#3766#0" expanded="true" />
-                <element signature="e#3819#3820#0" expanded="true" />
+                <element signature="e#5022#5023#0" expanded="true" />
+                <element signature="e#5048#5049#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,10 +91,34 @@
       </file>
       <file leaf-file-name="mainView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/mainView.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="141" column="242" selection-start-line="141" selection-start-column="242" selection-end-line="141" selection-end-column="242" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Base.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/elements/Base.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Brick.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/elements/Brick.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,6 +135,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>changeL</find>
+      <find>start</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -145,6 +158,7 @@
         <option value="$PROJECT_DIR$/src/maldivesmotiv.css" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/elements/Base.java" />
+        <option value="$PROJECT_DIR$/src/elements/Brick.java" />
         <option value="$PROJECT_DIR$/src/views/mainView.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/BrickBreakerController.java" />
       </list>
@@ -352,7 +366,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16689655" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24551724" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="2" />
@@ -407,8 +421,8 @@
           <caret line="86" column="35" lean-forward="true" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -447,8 +461,8 @@
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -487,8 +501,8 @@
           <caret line="63" column="28" lean-forward="true" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -528,8 +542,8 @@
           <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -573,8 +587,8 @@
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -582,6 +596,58 @@
     <entry file="file://$PROJECT_DIR$/src/css/maldivesmotiv.css" />
     <entry file="file://$PROJECT_DIR$/BrickBreaker.iml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/starsmotiv.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/elements/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/elements/Brick.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maldivesmotiv.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/roadmotiv.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -597,56 +663,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starsmotiv.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maldivesmotiv.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/mainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="141" column="242" selection-start-line="141" selection-start-column="242" selection-end-line="141" selection-end-column="242" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/elements/Base.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/BrickBreakerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
+        <state relative-caret-position="119">
+          <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
           </folding>
         </state>
       </provider>

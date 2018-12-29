@@ -14,15 +14,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainBorder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
    <center>
-      <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="25.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
-         </children></AnchorPane>
+      <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <VBox fx:id="menuBox" prefHeight="400.0" prefWidth="285.0" style="-fx-border-style: solid; -fx-border-width: 0px 3px 0px 3px; -fx-border-color: white;" BorderPane.alignment="CENTER">
@@ -81,7 +77,7 @@
                   <Font name="Arial Black" size="23.0" />
                </font>
             </Label>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" opacity="0.78" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #202020;" text="Start" textFill="WHITE">
+            <Button mnemonicParsing="false" opacity="0.78" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #202020;" text="Start" textFill="WHITE">
                <VBox.margin>
                   <Insets left="20.0" top="20.0" />
                </VBox.margin></Button>
