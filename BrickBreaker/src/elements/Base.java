@@ -6,10 +6,10 @@ import javafx.scene.shape.Rectangle;
 
 public class Base {
 
-    private int width;
-    private int height;
-    private int initialX;
-    private int initialY;
+    private static int width;
+    private static int height;
+    public static int initialX;
+    public static int initialY;
     private final int radius = 15;
     private String color;
 
@@ -24,6 +24,9 @@ public class Base {
     public static final int levelThreeWidth;
     public static final int xUpperBound;
     public static final int xUpperBoundChange;
+
+    public static int xCurrent;
+    public static int yCurrent;
 
     private Rectangle rectangle;
 
@@ -61,6 +64,8 @@ public class Base {
         this.initialX = initialX;
         this.initialY = initialY;
         this.color = color;
+        xCurrent = this.initialX;
+        yCurrent = this.initialY;
         rectangle = new Rectangle();
         rectangle.setWidth(width);
         rectangle.setHeight(height);
@@ -79,6 +84,14 @@ public class Base {
 
     public String getBaseId() {
         return baseId;
+    }
+
+    public static int getWidth() {
+        return width;
+    }
+
+    public static int getHeight(){
+        return height;
     }
 
 }

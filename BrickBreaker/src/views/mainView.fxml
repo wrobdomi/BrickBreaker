@@ -28,7 +28,7 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="60.0" prefWidth="328.0" text="0 / 72" underline="true">
+            <Label fx:id="scoreLabel" alignment="CENTER" prefHeight="60.0" prefWidth="328.0" text="0 / 72" underline="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -117,6 +117,10 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </Slider>
+            <Label fx:id="overLabel" alignment="CENTER" prefHeight="56.0" prefWidth="279.0" text="GAME OVER" textFill="#f20404" visible="false">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font></Label>
          </children></VBox>
    </left>
 </BorderPane>
