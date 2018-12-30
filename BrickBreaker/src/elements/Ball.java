@@ -27,7 +27,6 @@ public class Ball {
     public static boolean goingUp = true;
     public static boolean goingLeft = true;
 
-
     public Ball() {
         circle = new Circle();
         circle.setTranslateX(initialX);
@@ -43,15 +42,12 @@ public class Ball {
     public static void calculateBallDirection(int x, int y){
         if(x <= xAreaLowBorder ){
             goingLeft = false;
-            // System.out.print("calculate Right");
         }
         if(x >= xAreaHighBorder){
             goingLeft = true;
-            // System.out.print("calculate Left");
         }
         if(y <= yAreaHighBorder){
             goingUp = false;
-            // System.out.println("calculate Down");
         }
     }
 

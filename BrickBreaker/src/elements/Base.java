@@ -82,10 +82,6 @@ public class Base {
         return rectangle;
     }
 
-    public String getBaseId() {
-        return baseId;
-    }
-
     public static int getWidth() {
         return width;
     }
