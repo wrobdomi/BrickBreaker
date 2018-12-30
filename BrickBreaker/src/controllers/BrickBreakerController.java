@@ -1,5 +1,6 @@
 package controllers;
 
+import elements.Ball;
 import elements.Base;
 import elements.Brick;
 import javafx.animation.TranslateTransition;
@@ -14,12 +15,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class BrickBreakerController implements Initializable {
@@ -81,6 +86,7 @@ public class BrickBreakerController implements Initializable {
         mainAnchor.getChildren().clear();
         drawBricks();
         drawBase();
+        drawBall();
     }
 
     @FXML
@@ -212,6 +218,14 @@ public class BrickBreakerController implements Initializable {
         tt.play();
     }
 
+    public void drawBall(){
+
+        Ball ball = Ball.getInstance();
+        Circle circleBall = ball.getCircle();
+        mainAnchor.getChildren().add(circleBall);
+
+    }
+
 
     public void changeLevel(){
         drawBase();
@@ -224,6 +238,90 @@ public class BrickBreakerController implements Initializable {
         int b = random.nextInt(255);
         Color color = Color.rgb(r, g, b);
         return color.toString();
+    }
+
+    public void startMovingBall(){
+
+        System.out.println("Starting ball");
+
+        Circle circle = (Circle) mainAnchor.lookup(Ball.ballSearchId);
+
+//        int lastX = Ball.initialX;
+//        int lastY = Ball.initialY;
+//        int newX = 0;
+//        int newY = 0;
+
+      //   for(int i = 0 ; i < 20; i++){
+
+      //      System.out.println(i);
+
+        Ball.currentX = Ball.initialX;
+        Ball.currentY = Ball.initialY;
+
+            ScheduledExecutorService execService = Executors.newScheduledThreadPool(5);
+            execService.scheduleAtFixedRate(()->{
+
+                Ball.calculateBallDirection(Ball.currentX, Ball.currentY);
+
+                TranslateTransition tt =
+                        new TranslateTransition(Duration.millis(500), circle);
+
+                int newX = 0;
+                int newY = 0;
+
+                if(Ball.goingUp && Ball.goingLeft){
+                    newX = Ball.currentX - 20;
+                    newY = Ball.currentY - 20;
+                    System.out.println("Going Up and Left");
+                }
+                if(Ball.goingUp && !Ball.goingLeft){
+                    newX = Ball.currentX + 20;
+                    newY = Ball.currentY - 20;
+                    System.out.println("Going Up and Right");
+                }
+                if(!Ball.goingUp && Ball.goingLeft){
+                    newX = Ball.currentX - 20;
+                    newY = Ball.currentY + 20;
+                    System.out.println("Going Down and Left");
+                }
+                if(!Ball.goingUp && !Ball.goingLeft){
+                    newX = Ball.currentX + 20;
+                    newY = Ball.currentY + 20;
+                    System.out.println("Going Down and Right");
+                }
+
+                tt.setFromX(Ball.currentX);
+                tt.setFromY(Ball.currentY);
+                tt.setToX( newX );
+                tt.setToY( newY );
+                tt.play();
+                Ball.currentX = newX;
+                Ball.currentY = newY;
+
+            }, 0, 500L, TimeUnit.MILLISECONDS);
+
+//
+//            TranslateTransition tt =
+//                    new TranslateTransition(Duration.seconds(2), circle);
+//
+//            newX = lastX - 20;
+//            newY = lastY - 20;
+//            tt.setFromX(lastX);
+//            tt.setFromY(lastY);
+//            tt.setToX( newX );
+//            tt.setToY( newY );
+//            tt.play();
+//            lastX = newX;
+//            lastY = newY;
+
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+
+        // }
+
     }
 
 

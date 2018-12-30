@@ -6,9 +6,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,55 +13,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
+<BorderPane fx:id="mainBorder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="908.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrickBreakerController">
    <center>
       <AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <VBox fx:id="menuBox" prefHeight="400.0" prefWidth="285.0" style="-fx-border-style: solid; -fx-border-width: 0px 3px 0px 3px; -fx-border-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="279.0" style="-fx-background-color: #50394c;" text="Brick " textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="59.0" prefWidth="258.0" style="-fx-border-style: solid; -fx-border-width: 2px;" text="Your Result">
                <font>
-                  <Font name="Arial Black" size="40.0" />
+                  <Font name="Castellar" size="32.0" />
                </font>
-               <effect>
-                  <Lighting diffuseConstant="1.39" specularConstant="1.37" specularExponent="21.95" surfaceScale="0.85">
-                     <bumpInput>
-                        <Shadow height="179.6" radius="81.525" width="148.5" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="328.0" text="0 / 72" underline="true">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="292.0" style="-fx-background-color: #50394c;" text="Breaker" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="40.0" />
+                  <Font name="Castellar" size="32.0" />
                </font>
-               <effect>
-                  <Lighting diffuseConstant="1.49" specularConstant="2.0" specularExponent="21.95" surfaceScale="0.0">
-                     <bumpInput>
-                        <Shadow color="WHITE" height="67.75" radius="61.3375" width="179.6" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </Label>
-            <Label graphicTextGap="10.0" prefHeight="21.0" prefWidth="284.0" text="Control Menu" textAlignment="CENTER">
+            <Label graphicTextGap="10.0" prefHeight="21.0" prefWidth="284.0" text="Control Menu" textAlignment="CENTER" underline="true">
                <VBox.margin>
                   <Insets left="10.0" top="30.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../arrow.png" />
                      </image>
@@ -74,31 +51,31 @@
                   <Insets />
                </opaqueInsets>
                <font>
-                  <Font name="Arial Black" size="23.0" />
+                  <Font name="Arial" size="23.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" opacity="0.78" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #202020;" text="Start" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#startMovingBall" opacity="0.78" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #202020;" text="Start" textFill="WHITE">
                <VBox.margin>
                   <Insets left="20.0" top="20.0" />
                </VBox.margin></Button>
-            <Label graphicTextGap="10.0" text="Appearance Menu">
+            <Label graphicTextGap="10.0" text="Appearance Menu" underline="true">
                <VBox.margin>
                   <Insets left="10.0" top="30.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../arrow.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Arial Black" size="23.0" />
+                  <Font name="Arial" size="23.0" />
                </font>
             </Label>
             <Label alignment="CENTER" opacity="0.75" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #202020;" text="Motiv" textFill="WHITE">
                <VBox.margin>
-                  <Insets left="20.0" top="15.0" />
+                  <Insets left="20.0" top="20.0" />
                </VBox.margin>
                <font>
                   <Font name="Arial Italic" size="15.0" />
@@ -120,16 +97,16 @@
                <VBox.margin>
                   <Insets left="20.0" top="5.0" />
                </VBox.margin></ColorPicker>
-            <Label graphicTextGap="10.0" layoutX="23.0" layoutY="340.0" text="Level Menu">
+            <Label graphicTextGap="10.0" layoutX="23.0" layoutY="340.0" text="Level Menu" underline="true">
                <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../arrow.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Arial Black" size="23.0" />
+                  <Font name="Arial" size="23.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" top="30.0" />
@@ -137,7 +114,7 @@
             </Label>
             <Slider fx:id="levelSlider" blockIncrement="1.0" majorTickUnit="1.0" max="3.0" maxHeight="40.0" maxWidth="212.0" min="1.0" minHeight="40.0" minWidth="150.0" minorTickCount="1" onMouseReleased="#changeLevel" prefHeight="40.0" prefWidth="212.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
                <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
+                  <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </Slider>
          </children></VBox>
