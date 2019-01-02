@@ -21,10 +21,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 
 public class BrickBreakerController implements Initializable {
 
@@ -273,101 +269,102 @@ public class BrickBreakerController implements Initializable {
         Ball.currentY = Ball.initialY;
         gameOver = 0;
 
-        ScheduledExecutorService execService = Executors.newScheduledThreadPool(5);
-        execService.scheduleAtFixedRate(()->{
+        play();
+    }
 
-            Circle circle = (Circle) mainAnchor.lookup(Ball.ballSearchId);
-            Rectangle rectangle = ( Rectangle ) mainAnchor.lookup(Base.searchId);
-            boolean brickEncountered = false;
-            boolean fromUp = false;
+    public void play(){
 
 
+        Circle circle = (Circle) mainAnchor.lookup(Ball.ballSearchId);
+        Rectangle rectangle = (Rectangle) mainAnchor.lookup(Base.searchId);
+        boolean brickEncountered = false;
+        boolean fromUp = false;
 
-            for(Rectangle r : bricks){
-                if(     r.getTranslateX() - 10 < circle.getTranslateX()
-                        && r.getTranslateX() + r.getWidth() + 10 > circle.getTranslateX()
-                        && r.getTranslateY() - r.getHeight()/2 < circle.getTranslateY()
-                        && r.getTranslateY() + 3/2*r.getHeight() > circle.getTranslateY()
-                        && r.isVisible() ) {
-                    r.setVisible(false);
-                    brickEncountered = true;
-                    score++;
-                    if( r.getTranslateY() > circle.getTranslateY() ){
-                        fromUp = true;
-                    }
-                    break;
+
+        for (Rectangle r : bricks) {
+            if (r.getTranslateX() - 10 < circle.getTranslateX()
+                    && r.getTranslateX() + r.getWidth() + 10 > circle.getTranslateX()
+                    && r.getTranslateY() - r.getHeight() / 2 < circle.getTranslateY()
+                    && r.getTranslateY() + 3 / 2 * r.getHeight() > circle.getTranslateY()
+                    && r.isVisible()) {
+                r.setVisible(false);
+                brickEncountered = true;
+                score++;
+                if (r.getTranslateY() > circle.getTranslateY()) {
+                    fromUp = true;
                 }
+                break;
             }
+        }
 
-            Ball.calculateBallDirection(Ball.currentX, Ball.currentY);
+        Ball.calculateBallDirection(Ball.currentX, Ball.currentY);
 
 
-            int newX = 0;
-            int newY = 0;
+        int newX = 0;
+        int newY = 0;
 
-            if(!brickEncountered){
-                if(Ball.goingUp && Ball.goingLeft){
-                    newX = Ball.currentX - Ball.xMovement;
-                    newY = Ball.currentY - Ball.yMovement;
-                }
-                if(Ball.goingUp && !Ball.goingLeft){
-                    newX = Ball.currentX + Ball.xMovement;
-                    newY = Ball.currentY - Ball.yMovement;
-                }
-                if(!Ball.goingUp && Ball.goingLeft){
-                    newX = Ball.currentX - Ball.xMovement;
-                    newY = Ball.currentY + Ball.yMovement;
-                }
-                if(!Ball.goingUp && !Ball.goingLeft){
-                    newX = Ball.currentX + Ball.xMovement;
-                    newY = Ball.currentY + Ball.yMovement;
-                }
-                if(Ball.currentY > Base.initialY + Base.getHeight() ){
-                    execService.shutdown();
-                    gameOver = 1;
-                    this.showGameOverDialog();
-                }
+        if (!brickEncountered) {
+            if (Ball.goingUp && Ball.goingLeft) {
+                newX = Ball.currentX - Ball.xMovement;
+                newY = Ball.currentY - Ball.yMovement;
             }
-           else{
-                if(!fromUp){
-                    Ball.goingUp = false;
-                    newY = Ball.currentY + Ball.yMovement;
-                }
-                else{
-                    Ball.goingUp = true;
-                    newY = Ball.currentY - Ball.yMovement;
-                }
-                if(Ball.goingLeft){
-                    newX = Ball.currentX - Ball.xMovement;
-                }else{
-                    newX = Ball.currentX + Ball.xMovement;
-                }
+            if (Ball.goingUp && !Ball.goingLeft) {
+                newX = Ball.currentX + Ball.xMovement;
+                newY = Ball.currentY - Ball.yMovement;
             }
-
-            if(rectangle.getLayoutX() + Base.getWidth() > circle.getTranslateX()
-                    && rectangle.getLayoutX() < circle.getTranslateX()
-                    && rectangle.getLayoutY() - Base.getHeight()/2 < circle.getTranslateY()
-                    && rectangle.getLayoutY() > circle.getTranslateY() ){
+            if (!Ball.goingUp && Ball.goingLeft) {
+                newX = Ball.currentX - Ball.xMovement;
+                newY = Ball.currentY + Ball.yMovement;
+            }
+            if (!Ball.goingUp && !Ball.goingLeft) {
+                newX = Ball.currentX + Ball.xMovement;
+                newY = Ball.currentY + Ball.yMovement;
+            }
+            if (Ball.currentY > Base.initialY + Base.getHeight()) {
+                gameOver = 1;
+                this.showGameOverDialog();
+                return;
+            }
+        } else {
+            if (!fromUp) {
+                Ball.goingUp = false;
+                newY = Ball.currentY + Ball.yMovement;
+            } else {
                 Ball.goingUp = true;
                 newY = Ball.currentY - Ball.yMovement;
-                if(Ball.goingLeft){
-                    newX = Ball.currentX - Ball.xMovement;
-                }else{
-                    newX = Ball.currentX + Ball.xMovement;
-                }
             }
+            if (Ball.goingLeft) {
+                newX = Ball.currentX - Ball.xMovement;
+            } else {
+                newX = Ball.currentX + Ball.xMovement;
+            }
+        }
 
-            TranslateTransition tt =
-                    new TranslateTransition(Duration.millis(75), circle);
-            tt.setFromX(Ball.currentX);
-            tt.setFromY(Ball.currentY);
-            tt.setToX( newX );
-            tt.setToY( newY );
-            tt.play();
-            Ball.currentX = newX;
-            Ball.currentY = newY;
+        if (rectangle.getLayoutX() + Base.getWidth() > circle.getTranslateX()
+                && rectangle.getLayoutX() - 5 < circle.getTranslateX()
+                && rectangle.getLayoutY() - Base.getHeight() < circle.getTranslateY()
+                && rectangle.getLayoutY() + 5 > circle.getTranslateY()) {
+            Ball.goingUp = true;
+            newY = Ball.currentY - Ball.yMovement;
+            if (Ball.goingLeft) {
+                newX = Ball.currentX - Ball.xMovement;
+            } else {
+                newX = Ball.currentX + Ball.xMovement;
+            }
+        }
 
-        }, 0, 75L, TimeUnit.MILLISECONDS);
+        TranslateTransition tt =
+                new TranslateTransition(Duration.millis(74), circle);
+        tt.setFromX(Ball.currentX);
+        tt.setFromY(Ball.currentY);
+        tt.setToX(newX);
+        tt.setToY(newY);
+        tt.play();
+
+        Ball.currentX = newX;
+        Ball.currentY = newY;
+
+        tt.setOnFinished(e -> play());
 
     }
 
