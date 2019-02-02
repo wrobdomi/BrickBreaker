@@ -40,11 +40,11 @@
 * BrickBreaker
   * src/controllers
     + BrickBreakerController
-  * scr/elements
+  * src/elements
     + Ball
     + Base
     + Brick
-  * scr/main
+  * src/main
     + Main
   * views
     + mainView.fxml
