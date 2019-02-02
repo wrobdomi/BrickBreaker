@@ -7,7 +7,6 @@
 - [Project Structure](#project-structure)
 - [Technologies](#technologies)
   * [Architecture](#architecture)
-  * [Libraries](#libraries)
 - [How to run](#how-to-run)
 
 
